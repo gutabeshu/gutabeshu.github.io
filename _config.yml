@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "HORA (Hydrosystems Operations, Resilience, and Adaptation) Lab"
+title                    : "HORA Lab"
 title_separator          : "-"
 name                     : &name "Guta Wakbulcho Abeshu"
 description              : &description "Postdoc in Computational Climate Science"
