@@ -8,13 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-Welcome! I am a data scientist applying machine learning tools and causal
-inference techniques to remote sensing data. I am an affiliated
-researcher with the [Data-driven Analysis of Peace Project](https://dapp-lab.org)
-and a research collaborator with the 
-[Research on International Policy Implementation Lab](https://bridgingthegapproject.org/ripil).
+Welcome! I am a researcher specializing in hydrology, machine learning, and environmental sustainability. His work integrates AI/ML technologies with physics-based models to solve global challenges in water resource management and infrastructure resilience. With expertise in hydrological modeling and transboundary water management, Guta's research aims to improve global water sustainability and climate adaptation. His current initiatives focus on potable water sustainability, adaptive resilience in water infrastructure, advanced hydrological modeling, and AI-driven transboundary river solutions, making him a leader in addressing critical issues related to water and climate in the 21st century..
 
-I earned my PhD in Political Science from the
+<!-- I earned my PhD in Political Science from the
 [University *of* North Carolina *at* Chapel Hill](https://www.unc.edu) and my
 BA in Political Science from [Haverford College](https://www.haverford.edu).
 My academic work has been [published](publications) in the
@@ -25,4 +21,4 @@ My academic work has been [published](publications) in the
 using a broad variety of methods such as latent variable models, geospatial
 analysis, and big data. I have [taught](teaching) quantitative methodology and
 international relations, and am a certified instructor with
-[The Carpentries](https://carpentries.org).
+[The Carpentries](https://carpentries.org). -->
