@@ -5,7 +5,7 @@ header:
   og_image: "teaching/pdp.png"
 ---
 
-## <i class="fas fa-fw fa-code" aria-hidden="true"></i> Poli 891: Lab for Advanced Political Data Science
+<!-- ## <i class="fas fa-fw fa-code" aria-hidden="true"></i> Poli 891: Lab for Advanced Political Data Science
 {: #political-data-science }
 - [Programming Style](/files/html/teaching-materials/R_Style_Guide)
 - [Functional Programming in R](/files/html/teaching-materials/Functional_Programming)
@@ -56,4 +56,4 @@ header:
 
 ## <i class="fas fa-fw fa-globe-africa" aria-hidden="true"></i> Peace Science 2018: Measurement Workshop
 {: #peace-science }
-- [Item Response Theory Models](/files/html/teaching-materials/PSS_IRT)
+- [Item Response Theory Models](/files/html/teaching-materials/PSS_IRT) -->
