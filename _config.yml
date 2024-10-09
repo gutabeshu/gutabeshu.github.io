@@ -11,7 +11,7 @@ title                    : "HORA (Hydrosystems Operations, Resilience, and Adapt
 title_separator          : "-"
 name                     : &name "Guta Wakbulcho Abeshu"
 description              : &description "Postdoc in Computational Climate Science"
-url                      : https://jayrobwilliams.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+# url                      : https://jayrobwilliams.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "gutabeshu/gutabeshu.github.io"
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
