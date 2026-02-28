@@ -463,6 +463,19 @@ footer a:hover { color: var(--teal-300); }
 .timeline-desc ul { list-style: disc; padding-left: 1.25rem; }
 .timeline-desc li { margin-bottom: 0.25rem; }
 
+/* === ABOUT: EDUCATION MINI-CARDS === */
+.edu-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-top: 1.25rem; }
+.edu-mini {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--blue-800); border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem; transition: all var(--dur) var(--ease);
+}
+.edu-mini:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.edu-mini-degree { font-weight: 700; font-size: 0.95rem; color: var(--gray-800); margin-bottom: 0.25rem; line-height: 1.4; }
+.edu-mini-uni { font-size: 0.87rem; color: var(--blue-700); font-weight: 600; margin-bottom: 0.4rem; }
+.edu-mini-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem; font-size: 0.8rem; color: var(--gray-400); }
+.edu-mini-year { background: var(--teal-600); color: var(--white); padding: 0.1rem 0.6rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+
 /* === PUBLICATIONS: FILTER === */
 .pub-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
 .filter-btn {
@@ -502,4 +515,5 @@ footer a:hover { color: var(--teal-300); }
   .pub-card     { grid-template-columns: 1fr; }
   .pub-year-badge { justify-content: flex-start; }
   .hero-actions { flex-direction: column; align-items: center; }
+  .edu-mini-grid { grid-template-columns: 1fr; }
 }
