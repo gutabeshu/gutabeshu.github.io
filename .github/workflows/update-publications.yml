@@ -1,0 +1,62 @@
+name: Update Publications
+
+# ── When to run ────────────────────────────────────────────────────────────────
+on:
+  # Every Monday at 06:00 UTC
+  schedule:
+    - cron: '0 6 * * 1'
+
+  # Run manually from GitHub Actions tab (Actions → Update Publications → Run workflow)
+  workflow_dispatch:
+
+  # Also run whenever the author config changes (e.g. you update your Semantic Scholar ID)
+  push:
+    paths:
+      - 'data/author_config.json'
+      - 'scripts/fetch_publications.py'
+
+# ── Permissions ────────────────────────────────────────────────────────────────
+permissions:
+  contents: write
+
+# ── Job ────────────────────────────────────────────────────────────────────────
+jobs:
+  update-publications:
+    name: Fetch & commit publications
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. Set up Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. Install the only dependency (requests)
+      - name: Install dependencies
+        run: pip install requests
+
+      # 4. Run the fetch script
+      - name: Fetch publications from Semantic Scholar
+        run: python scripts/fetch_publications.py
+
+      # 5. Commit and push only if publications.json actually changed
+      - name: Commit updated publications
+        run: |
+          git config user.name  "Publications Bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/publications.json
+          if git diff --staged --quiet; then
+            echo "✓ No changes — publications are already up to date."
+          else
+            TOTAL=$(python -c "import json; d=json.load(open('data/publications.json')); print(d['total'])")
+            git commit -m "chore: update publications ($TOTAL papers) [automated]"
+            git push
+            echo "✓ Committed and pushed updated publications.json"
+          fi

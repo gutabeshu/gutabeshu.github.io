@@ -11,6 +11,78 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/modern.css">
+  <style>
+    /* Loading skeleton */
+    .pub-skeleton {
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .skeleton-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md); padding: 1.5rem 1.75rem;
+      display: grid; grid-template-columns: 56px 1fr; gap: 1.5rem;
+    }
+    .skeleton-block {
+      background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: var(--radius-sm);
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    /* Citation count badge */
+    .pub-citations {
+      font-size: 0.78rem; color: var(--gray-400); margin-bottom: 0.7rem;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .pub-citations i { font-size: 0.7rem; }
+    /* Open access badge */
+    .oa-badge {
+      display: inline-flex; align-items: center; gap: 0.25rem;
+      font-size: 0.72rem; font-weight: 600;
+      color: #2e7d32; background: #e8f5e9;
+      padding: 0.12rem 0.5rem; border-radius: var(--radius-full);
+      margin-left: 0.5rem; vertical-align: middle;
+    }
+    /* Stats row */
+    .pub-stats-bar {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md); padding: 1.25rem 1.75rem;
+      margin-bottom: 2rem; align-items: center;
+    }
+    .pub-stat { text-align: center; }
+    .pub-stat-num   { display: block; font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--blue-800); line-height: 1; }
+    .pub-stat-label { font-size: 0.75rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; }
+    .pub-stat-sep   { width: 1px; height: 40px; background: var(--gray-200); }
+    /* Error / empty state */
+    .pub-state-box {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md); padding: 3rem 2rem;
+      text-align: center; color: var(--gray-500);
+    }
+    .pub-state-box i  { font-size: 2.5rem; color: var(--gray-300); margin-bottom: 1rem; display: block; }
+    .pub-state-box h3 { color: var(--gray-700); margin-bottom: 0.5rem; }
+    /* Updated timestamp */
+    .pub-meta { font-size: 0.8rem; color: var(--gray-400); margin-left: auto; }
+    /* Author bold highlighting */
+    .pub-body strong { color: var(--blue-800); }
+    /* Abstract toggle */
+    .abstract-toggle {
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 0.78rem; color: var(--teal-600); font-weight: 500;
+      font-family: var(--font-sans); display: flex; align-items: center; gap: 0.3rem;
+    }
+    .abstract-toggle:hover { color: var(--teal-700); }
+    .abstract-text {
+      display: none; margin-top: 0.75rem;
+      font-size: 0.85rem; color: var(--gray-500); line-height: 1.75;
+      padding: 0.75rem 1rem; background: var(--gray-50);
+      border-radius: var(--radius-sm); border-left: 3px solid var(--teal-500);
+    }
+    .abstract-text.open { display: block; }
+  </style>
 </head>
 <body>
 
@@ -49,11 +121,16 @@
       <h1>Publications</h1>
       <p class="page-hero-sub">
         Peer-reviewed contributions in hydrology, AI/ML, and computational climate science.
-        Please update these entries with your actual publication titles and DOI links.
+        <span id="hero-total" style="color:var(--teal-300);font-weight:600;"></span>
       </p>
       <div style="margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="btn btn-white" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i> Google Scholar</a>
-        <a href="files/pdf/Guta-CV.pdf" class="btn btn-ghost" target="_blank"><i class="fas fa-file-pdf"></i> Full CV</a>
+        <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en"
+           class="btn btn-white" target="_blank" rel="noopener">
+          <i class="ai ai-google-scholar"></i> Google Scholar
+        </a>
+        <a href="files/pdf/Guta-CV.pdf" class="btn btn-ghost" target="_blank">
+          <i class="fas fa-file-pdf"></i> Full CV
+        </a>
       </div>
     </div>
   </div>
@@ -64,136 +141,77 @@
   </div>
 </section>
 
-<!-- PUBLICATIONS CONTENT -->
+<!-- PUBLICATIONS -->
 <section class="section">
   <div class="container">
 
-    <!-- Filter bar -->
-    <div class="pub-filter">
-      <button class="filter-btn active" data-filter="all">All Years</button>
-      <button class="filter-btn" data-filter="2024">2024</button>
-      <button class="filter-btn" data-filter="2023">2023</button>
-      <button class="filter-btn" data-filter="2022">2022</button>
-      <button class="filter-btn" data-filter="2021">2021</button>
+    <!-- Stats bar (filled by JS) -->
+    <div class="pub-stats-bar" id="pub-stats" style="display:none;">
+      <div class="pub-stat">
+        <span class="pub-stat-num" id="stat-total">—</span>
+        <span class="pub-stat-label">Papers</span>
+      </div>
+      <div class="pub-stat-sep"></div>
+      <div class="pub-stat">
+        <span class="pub-stat-num" id="stat-citations">—</span>
+        <span class="pub-stat-label">Total Citations</span>
+      </div>
+      <div class="pub-stat-sep"></div>
+      <div class="pub-stat">
+        <span class="pub-stat-num" id="stat-years">—</span>
+        <span class="pub-stat-label">Years Active</span>
+      </div>
+      <div class="pub-stat-sep"></div>
+      <div class="pub-stat">
+        <span class="pub-stat-num" id="stat-oa">—</span>
+        <span class="pub-stat-label">Open Access</span>
+      </div>
+      <span class="pub-meta" id="pub-updated"></span>
     </div>
 
-    <!-- Scholar CTA -->
-    <div style="background:var(--blue-50);border:1px solid var(--blue-100);border-radius:var(--radius-md);padding:1rem 1.5rem;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
-      <i class="ai ai-google-scholar" style="font-size:1.5rem;color:var(--blue-800);"></i>
-      <div>
-        <strong style="color:var(--blue-900);">Update with real papers:</strong>
-        <span style="color:var(--gray-600);font-size:0.9rem;"> Replace the placeholder entries below with your actual publications and DOI links. View your full record on </span>
-        <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" style="color:var(--blue-700);font-weight:600;" target="_blank" rel="noopener">Google Scholar</a>.
+    <!-- Filter bar (filled by JS) -->
+    <div class="pub-filter" id="pub-filter"></div>
+
+    <!-- Publication list (filled by JS) -->
+    <div id="pub-list-container">
+      <!-- Loading skeleton -->
+      <div class="pub-skeleton" id="pub-skeleton">
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton-block" style="height:28px;border-radius:var(--radius-sm);"></div>
+          <div>
+            <div class="skeleton-block" style="height:18px;width:85%;margin-bottom:8px;"></div>
+            <div class="skeleton-block" style="height:14px;width:60%;margin-bottom:6px;"></div>
+            <div class="skeleton-block" style="height:14px;width:45%;margin-bottom:12px;"></div>
+            <div class="skeleton-block" style="height:28px;width:100px;"></div>
+          </div>
+        </div>
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton-block" style="height:28px;border-radius:var(--radius-sm);"></div>
+          <div>
+            <div class="skeleton-block" style="height:18px;width:75%;margin-bottom:8px;"></div>
+            <div class="skeleton-block" style="height:14px;width:55%;margin-bottom:6px;"></div>
+            <div class="skeleton-block" style="height:14px;width:40%;margin-bottom:12px;"></div>
+            <div class="skeleton-block" style="height:28px;width:100px;"></div>
+          </div>
+        </div>
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton-block" style="height:28px;border-radius:var(--radius-sm);"></div>
+          <div>
+            <div class="skeleton-block" style="height:18px;width:90%;margin-bottom:8px;"></div>
+            <div class="skeleton-block" style="height:14px;width:65%;margin-bottom:6px;"></div>
+            <div class="skeleton-block" style="height:14px;width:50%;margin-bottom:12px;"></div>
+            <div class="skeleton-block" style="height:28px;width:100px;"></div>
+          </div>
+        </div>
       </div>
+      <div class="pub-list" id="pub-list" style="display:none;"></div>
     </div>
 
-    <div class="pub-list">
-
-      <!-- 2024 -->
-      <div class="pub-card fade-up" data-year="2024">
-        <div class="pub-year-badge"><span>2024</span></div>
-        <div class="pub-body">
-          <h4>Enhancing Streamflow Predictions with Deep Learning and Physical Constraints in Large-Scale Hydrological Models</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, Li, H.-Y., Zhu, Z., et al.</p>
-          <p class="pub-journal">Geophysical Research Letters</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-card fade-up" data-year="2024">
-        <div class="pub-year-badge"><span>2024</span></div>
-        <div class="pub-body">
-          <h4>Global Water Sustainability Under Climate Change: Integrating AI with Earth System Models</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, et al.</p>
-          <p class="pub-journal">Nature Water</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2023 -->
-      <div class="pub-card fade-up" data-year="2023">
-        <div class="pub-year-badge"><span>2023</span></div>
-        <div class="pub-body">
-          <h4>Reservoir Operations Under Compound Droughts and Heat Extremes: A Deep Reinforcement Learning Approach</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, et al.</p>
-          <p class="pub-journal">Environmental Research Letters</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-card fade-up" data-year="2023">
-        <div class="pub-year-badge"><span>2023</span></div>
-        <div class="pub-body">
-          <h4>Mediating Transboundary Water Conflicts Using AI-Driven Multiobjective Optimization in International River Basins</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, et al.</p>
-          <p class="pub-journal">Water Resources Research</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2022 -->
-      <div class="pub-card fade-up" data-year="2022">
-        <div class="pub-year-badge"><span>2022</span></div>
-        <div class="pub-body">
-          <h4>Integrating Satellite GRACE Data with Physics-Based Hydrological Models for Global Groundwater Assessment</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, et al.</p>
-          <p class="pub-journal">Journal of Hydrology</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-card fade-up" data-year="2022">
-        <div class="pub-year-badge"><span>2022</span></div>
-        <div class="pub-body">
-          <h4>Deep Learning for Drought Prediction: A Multi-Variate LSTM Approach Using Remote Sensing and Climate Data</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, et al.</p>
-          <p class="pub-journal">Hydrology and Earth System Sciences</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2021 -->
-      <div class="pub-card fade-up" data-year="2021">
-        <div class="pub-year-badge"><span>2021</span></div>
-        <div class="pub-body">
-          <h4>Climate Change Impacts on Potable Water Availability: A Global-Scale Assessment Using E3SM</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, et al.</p>
-          <p class="pub-journal">Geophysical Research Letters</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-card fade-up" data-year="2021">
-        <div class="pub-year-badge"><span>2021</span></div>
-        <div class="pub-body">
-          <h4>Adaptive Water Infrastructure Management Under Hydroclimatic Extremes: Case Studies from the Nile and Mekong Basins</h4>
-          <p class="pub-authors"><strong>Abeshu, G. W.</strong>, et al.</p>
-          <p class="pub-journal">Water Resources Research</p>
-          <div class="pub-actions">
-            <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
+    <!-- Always-visible Scholar link -->
     <div style="text-align:center;margin-top:3rem;">
-      <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en" class="btn btn-teal" target="_blank" rel="noopener">
-        <i class="ai ai-google-scholar"></i>&nbsp; View Complete List on Google Scholar
+      <a href="https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en"
+         class="btn btn-teal" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>&nbsp; View Complete Record on Google Scholar
       </a>
     </div>
   </div>
@@ -208,10 +226,213 @@
       <a href="https://github.com/gutabeshu" class="footer-social" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
       <a href="mailto:gutewaqi@gmail.com" class="footer-social"><i class="fas fa-envelope"></i></a>
     </div>
-    <span>Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
+    <span>Auto-updated via <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a></span>
   </div>
 </footer>
 
 <script src="assets/js/modern.js"></script>
+<script>
+/* ============================================================
+   DYNAMIC PUBLICATIONS LOADER
+   Fetches data/publications.json (auto-generated by GitHub Actions)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var SCHOLAR_URL = 'https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en';
+
+  /* ── Helpers ── */
+  function esc(str) {
+    var d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  function formatAuthors(authors) {
+    /* Bold names wrapped in ** by the Python script */
+    return (authors || []).map(function (a) {
+      if (a.startsWith('**') && a.endsWith('**')) {
+        return '<strong>' + esc(a.slice(2, -2)) + '</strong>';
+      }
+      return esc(a);
+    }).join(', ');
+  }
+
+  function buildLinks(pub) {
+    var links = '';
+    if (pub.doiUrl) {
+      links += '<a href="' + esc(pub.doiUrl) + '" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>';
+    }
+    if (pub.pdfUrl) {
+      links += '<a href="' + esc(pub.pdfUrl) + '" class="pub-btn pub-btn-pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>';
+    } else if (pub.arxivUrl) {
+      links += '<a href="' + esc(pub.arxivUrl) + '" class="pub-btn pub-btn-pdf" target="_blank" rel="noopener"><i class="ai ai-arxiv"></i> arXiv</a>';
+    }
+    if (pub.scholarUrl) {
+      links += '<a href="' + esc(pub.scholarUrl) + '" class="pub-btn pub-btn-code" target="_blank" rel="noopener"><i class="fas fa-search"></i> Semantic Scholar</a>';
+    }
+    if (!links) {
+      links += '<a href="' + esc(SCHOLAR_URL) + '" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> View</a>';
+    }
+    return links;
+  }
+
+  function renderCard(pub, idx) {
+    var oaBadge = pub.isOpenAccess
+      ? '<span class="oa-badge"><i class="fas fa-lock-open"></i> Open Access</span>'
+      : '';
+    var citesBadge = pub.citationCount > 0
+      ? '<p class="pub-citations"><i class="fas fa-quote-right"></i> ' + pub.citationCount + ' citation' + (pub.citationCount !== 1 ? 's' : '') + '</p>'
+      : '';
+    var abstractBtn = pub.abstract
+      ? '<button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false"><i class="fas fa-chevron-down"></i> Abstract</button><div class="abstract-text">' + esc(pub.abstract) + '</div>'
+      : '';
+
+    return [
+      '<div class="pub-card fade-up" data-year="' + (pub.year || '') + '" data-delay="' + (idx % 5 * 80) + '">',
+      '  <div class="pub-year-badge"><span>' + (pub.year || 'N/A') + '</span></div>',
+      '  <div class="pub-body">',
+      '    <h4>' + esc(pub.title) + oaBadge + '</h4>',
+      '    <p class="pub-authors">' + formatAuthors(pub.authors) + '</p>',
+      '    <p class="pub-journal">' + esc(pub.venue || '') + '</p>',
+      citesBadge,
+      '    <div class="pub-actions">' + buildLinks(pub) + '</div>',
+      abstractBtn,
+      '  </div>',
+      '</div>'
+    ].join('\n');
+  }
+
+  function buildFilterBar(years, filterEl) {
+    var html = '<button class="filter-btn active" data-filter="all">All (' + years.reduce(function(a){return a;}, 0) + ')</button>';
+    years.forEach(function (y) {
+      html += '<button class="filter-btn" data-filter="' + y + '">' + y + '</button>';
+    });
+    filterEl.innerHTML = html;
+
+    /* attach events */
+    filterEl.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterEl.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        document.querySelectorAll('.pub-card').forEach(function (card) {
+          card.classList.toggle('hidden', f !== 'all' && card.dataset.year !== f);
+        });
+      });
+    });
+  }
+
+  function showError(msg) {
+    document.getElementById('pub-skeleton').style.display = 'none';
+    document.getElementById('pub-list').style.display    = 'none';
+    document.getElementById('pub-list-container').innerHTML =
+      '<div class="pub-state-box">' +
+      '<i class="fas fa-exclamation-circle"></i>' +
+      '<h3>Could not load publications</h3>' +
+      '<p>' + msg + '</p>' +
+      '<a href="' + SCHOLAR_URL + '" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:1.5rem;">' +
+      '<i class="ai ai-google-scholar"></i> View on Google Scholar</a>' +
+      '</div>';
+  }
+
+  /* ── Main loader ── */
+  async function loadPublications() {
+    var skeleton  = document.getElementById('pub-skeleton');
+    var listEl    = document.getElementById('pub-list');
+    var filterEl  = document.getElementById('pub-filter');
+    var statsEl   = document.getElementById('pub-stats');
+
+    try {
+      var resp = await fetch('data/publications.json?_=' + Date.now());
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      var data = await resp.json();
+
+      var pubs = data.publications || [];
+
+      /* ── Handle empty / placeholder state ── */
+      if (pubs.length === 0) {
+        skeleton.style.display = 'none';
+        listEl.style.display   = 'none';
+        document.getElementById('pub-list-container').innerHTML =
+          '<div class="pub-state-box">' +
+          '<i class="fas fa-flask"></i>' +
+          '<h3>Publications loading soon</h3>' +
+          '<p>Set your <strong>Semantic Scholar Author ID</strong> in <code>data/author_config.json</code>, then push to trigger the GitHub Action.</p>' +
+          '<a href="' + SCHOLAR_URL + '" class="btn btn-teal" target="_blank" rel="noopener" style="margin-top:1.5rem;">' +
+          '<i class="ai ai-google-scholar"></i> Google Scholar Profile</a>' +
+          '</div>';
+        return;
+      }
+
+      /* ── Render filter bar ── */
+      var years = data.years || [];
+      buildFilterBar(years, filterEl);
+
+      /* ── Render cards ── */
+      listEl.innerHTML = pubs.map(renderCard).join('\n');
+
+      /* ── Stats bar ── */
+      var totalCites = pubs.reduce(function (s, p) { return s + (p.citationCount || 0); }, 0);
+      var oaCount    = pubs.filter(function (p) { return p.isOpenAccess; }).length;
+      var yearRange  = years.length > 1 ? (years[years.length-1] + '–' + years[0]) : (years[0] || '—');
+      document.getElementById('stat-total').textContent     = data.total;
+      document.getElementById('stat-citations').textContent = totalCites.toLocaleString();
+      document.getElementById('stat-years').textContent     = yearRange;
+      document.getElementById('stat-oa').textContent        = oaCount;
+      if (data.updatedAt) {
+        document.getElementById('pub-updated').textContent  = 'Updated ' + data.updatedAt;
+      }
+      statsEl.style.display = 'flex';
+
+      /* Hero subtitle */
+      var heroTotal = document.getElementById('hero-total');
+      if (heroTotal) heroTotal.textContent = data.total + ' publications · ' + totalCites.toLocaleString() + ' citations';
+
+      /* ── Show list, hide skeleton ── */
+      skeleton.style.display = 'none';
+      listEl.style.display   = 'flex';
+      listEl.style.flexDirection = 'column';
+      listEl.style.gap       = '1.25rem';
+
+      /* ── Trigger fade-up observer ── */
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              var delay = parseInt(e.target.dataset.delay || '0');
+              setTimeout(function () { e.target.classList.add('visible'); }, delay);
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.pub-card.fade-up').forEach(function (el) { obs.observe(el); });
+      } else {
+        document.querySelectorAll('.pub-card.fade-up').forEach(function (el) { el.classList.add('visible'); });
+      }
+
+    } catch (err) {
+      console.error('Publications load error:', err);
+      showError('Could not fetch <code>data/publications.json</code>. ' + err.message);
+    }
+  }
+
+  /* ── Abstract toggle ── */
+  window.toggleAbstract = function (btn) {
+    var box = btn.nextElementSibling;
+    var open = box.classList.toggle('open');
+    btn.querySelector('i').className = open ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+    btn.setAttribute('aria-expanded', open);
+    btn.querySelector('i').nextSibling.textContent = open ? ' Hide' : ' Abstract';
+  };
+
+  /* ── Run ── */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadPublications);
+  } else {
+    loadPublications();
+  }
+})();
+</script>
 </body>
 </html>
