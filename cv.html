@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/modern.css">
+  <script>!function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
   <style>
     /* ── TAB NAVIGATION ── */
     .cv-tabs-wrap {
@@ -198,6 +199,28 @@
     .panel-header p  { color: var(--gray-500); font-size: 0.92rem; }
     .panel-header .divider { margin: 0.5rem 0 0; }
 
+    /* === CV Dark Mode === */
+    [data-theme="dark"] .cv-tabs-wrap { background: rgba(13,17,23,0.96); border-color: #30363d; }
+    [data-theme="dark"] .cv-tab { color: #8b949e; }
+    [data-theme="dark"] .cv-tab:hover { color: #e6edf3; background: rgba(255,255,255,0.05); }
+    [data-theme="dark"] .cv-tab.active { color: #26c6da; border-bottom-color: #26c6da; }
+    [data-theme="dark"] .cv-panel { background: #0d1117; }
+    [data-theme="dark"] .stats-row { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .mini-stat .stat-value { color: #26c6da; }
+    [data-theme="dark"] .mini-stat .stat-lbl { color: #8b949e; }
+    [data-theme="dark"] .bio-text { color: #b1bac4; }
+    [data-theme="dark"] .tl-body { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .tl-title { color: #e6edf3; }
+    [data-theme="dark"] .tl-org { color: #26c6da; }
+    [data-theme="dark"] .tl-desc { color: #8b949e; }
+    [data-theme="dark"] .panel-header .section-title { color: #e6edf3; }
+    [data-theme="dark"] .interest-chip { background: rgba(0,188,212,0.12); color: #26c6da; border-color: rgba(0,188,212,0.25); }
+    [data-theme="dark"] .contact-grid-mini { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .edu-card { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .edu-card .edu-title { color: #e6edf3; }
+    [data-theme="dark"] .edu-card .edu-uni { color: #26c6da; }
+    [data-theme="dark"] h3[style*="color:var(--blue-900)"] { color: #e6edf3 !important; }
+
     @media (max-width: 700px) {
       .tl::before { left: 0; }
       .tl-item    { grid-template-columns: 1fr; }
@@ -220,6 +243,7 @@
       <a href="publications.html">Publications</a>
       <a href="cv.html" class="active">CV</a>
       <a href="index.html#contact">Contact</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -800,6 +824,10 @@
     <span>Hosted on GitHub Pages</span>
   </div>
 </footer>
+
+<button class="back-to-top" aria-label="Scroll to top" title="Scroll to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <script src="assets/js/modern.js"></script>
 <script>

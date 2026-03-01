@@ -3,19 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guta Wakbulcho Abeshu — Postdoctoral Researcher in Computational Climate Science at PNNL. Hydrology, AI/ML, water resources.">
-  <meta property="og:title"       content="Guta Wakbulcho Abeshu | Computational Climate Scientist">
+  <meta name="description" content="Guta Wakbulcho Abeshu — Postdoctoral Researcher and Computational Hydrologist at PNNL. Hydrology, AI/ML, water resources.">
+  <meta property="og:title"       content="Guta Wakbulcho Abeshu | Computational Hydrologist">
   <meta property="og:description" content="Postdoctoral Researcher at PNNL — hydrology, AI/ML, and global water sustainability.">
   <meta property="og:image"       content="/images/Guta.png">
-  <title>Guta Wakbulcho Abeshu | Computational Climate Scientist</title>
+  <title>Guta Wakbulcho Abeshu | Computational Hydrologist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/modern.css">
+  <!-- Prevent FOUC for dark mode -->
+  <script>!function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Guta Wakbulcho Abeshu",
+    "jobTitle": "Postdoctoral Researcher",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Pacific Northwest National Laboratory"
+    },
+    "url": "https://gutawabeshu.github.io",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en",
+      "https://github.com/gutabeshu",
+      "https://gitlab.com/gutabeshu"
+    ],
+    "description": "Postdoctoral Researcher and Computational Hydrologist specializing in AI/ML, hydrology, and water resources.",
+    "image": "https://gutawabeshu.github.io/images/Guta.png",
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Houston"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "ETH Zurich"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+
+<!-- SKIP LINK -->
+<a href="#about" class="skip-link">Skip to main content</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -28,6 +64,7 @@
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
       <a href="cv.html" class="nav-cv"><i class="fas fa-id-card"></i> CV</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -54,7 +91,7 @@
           Postdoctoral Researcher &mdash; PNNL
         </div>
         <h1 class="hero-name">Guta Wakbulcho<br><span>Abeshu</span></h1>
-        <p class="hero-role">Computational Climate &amp; Hydrology Scientist</p>
+        <p class="hero-role"><span id="typed-role">Computational Hydrologist</span></p>
         <p class="hero-institution">Pacific Northwest National Laboratory</p>
         <p class="hero-desc">
           Advancing global water sustainability by fusing AI&nbsp;/ ML with
@@ -82,7 +119,7 @@
   </div>
   <div class="hero-wave" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none" style="height:90px;width:100%;">
-      <path fill="#f0f7ff" d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,90 L0,90 Z"/>
+      <path class=\"hero-wave-path\" d=\"M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,90 L0,90 Z\" style=\"fill:#f0f7ff;\"/>
     </svg>
   </div>
 </section>
@@ -92,9 +129,9 @@
   <div class="container">
     <div class="stats-inner">
       <div class="stat-item"><span class="stat-num" data-target="20">0</span><span class="stat-label">Publications</span></div>
-      <div class="stat-item"><span class="stat-num" data-target="8">0</span><span class="stat-label">Years Research</span></div>
+      <div class="stat-item"><span class="stat-num" data-target="1049">0</span><span class="stat-label">Citations</span></div>
+      <div class="stat-item"><span class="stat-num" data-target="9">0</span><span class="stat-label">Years Research</span></div>
       <div class="stat-item"><span class="stat-num" data-target="4">0</span><span class="stat-label">Research Areas</span></div>
-      <div class="stat-item"><span class="stat-num" data-target="12">0</span><span class="stat-label">Collaborations</span></div>
     </div>
   </div>
 </section>
@@ -120,7 +157,7 @@
         <div class="info-card"><div class="info-card-label"><i class="fas fa-building"></i>&nbsp; Affiliation</div><div class="info-card-value">Pacific Northwest National Laboratory<br>Richland, WA, USA</div></div>
         <div class="info-card"><div class="info-card-label"><i class="fas fa-flask"></i>&nbsp; Research Lab</div><div class="info-card-value">HORA Lab — Hydrosystems Operations,<br>Resilience &amp; Adaptation</div></div>
         <div class="info-card"><div class="info-card-label"><i class="fas fa-microscope"></i>&nbsp; Focus Areas</div><div class="info-card-value">Computational Hydrology &bull; AI/ML<br>Climate Science &bull; Water Resources</div></div>
-        <div class="info-card"><div class="info-card-label"><i class="fas fa-graduation-cap"></i>&nbsp; Role</div><div class="info-card-value">Postdoctoral Researcher in<br>Computational Climate Science</div></div>
+        <div class="info-card"><div class="info-card-label"><i class="fas fa-graduation-cap"></i>&nbsp; Role</div><div class="info-card-value">Postdoctoral Researcher<br>Computational Hydrologist</div></div>
         <div class="info-card"><div class="info-card-label"><i class="fas fa-envelope"></i>&nbsp; Email</div><div class="info-card-value"><a href="mailto:guta.abeshu@pnnl.gov">guta.abeshu@pnnl.gov</a></div></div>
       </div>
     </div>
@@ -244,7 +281,7 @@
     <span class="eyebrow">Research Output</span>
     <h2 class="section-title">Selected Publications</h2>
     <div class="divider"></div>
-    <p class="section-sub">Peer-reviewed contributions in hydrology, AI/ML, and computational climate science.</p>
+    <p class="section-sub">Peer-reviewed contributions in hydrology, AI/ML, and computational hydrological science.</p>
     <!-- Loaded dynamically from data/publications.json -->
     <div class="pub-list" id="home-pub-list">
       <!-- Loading skeletons -->
@@ -316,7 +353,7 @@
     <div class="divider"></div>
     <div class="contact-grid">
       <div>
-        <p class="contact-lead">I am always excited to connect with fellow researchers, potential collaborators, and students interested in hydrology, computational climate science, and AI/ML applications for water systems. Feel free to reach out!</p>
+        <p class="contact-lead">I am always excited to connect with fellow researchers, potential collaborators, and students interested in hydrology, computational hydrological science, and AI/ML applications for water systems. Feel free to reach out!</p>
         <div class="contact-links">
           <a href="mailto:guta.abeshu@pnnl.gov" class="contact-link">
             <div class="cl-icon"><i class="fas fa-envelope"></i></div>
@@ -360,14 +397,20 @@
 </footer>
 
 <script src="assets/js/modern.js"></script>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" aria-label="Scroll to top" title="Scroll to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
 <script>
-/* Load 3 most recent publications from data/publications.json */
+/* Load 5 most recent publications from data/publications.json */
 (function () {
   var SCHOLAR = 'https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en';
   function esc(s) { var d = document.createElement('div'); d.textContent = s||''; return d.innerHTML; }
   function boldAuthors(arr) {
     return (arr||[]).map(function(a){
-      return a.startsWith('**') ? '<strong>'+esc(a.slice(2,-2))+'</strong>' : esc(a);
+      return a.startsWith('**') ? '<strong style="color:var(--teal-600);">'+esc(a.slice(2,-2))+'</strong>' : esc(a);
     }).join(', ');
   }
   async function loadRecent() {
@@ -377,23 +420,35 @@
       var r = await fetch('data/publications.json?_='+Date.now());
       if (!r.ok) throw new Error();
       var d = await r.json();
-      var pubs = (d.publications||[]).slice(0,3);
-      if (!pubs.length) return;                     // keep skeleton or empty
-      el.innerHTML = pubs.map(function(p){
+      var pubs = (d.publications||[]).slice(0,5);
+      if (!pubs.length) return;
+      el.innerHTML = pubs.map(function(p, i){
         var doi = p.doiUrl
           ? '<a href="'+esc(p.doiUrl)+'" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> DOI</a>'
           : '<a href="'+SCHOLAR+'" class="pub-btn pub-btn-doi" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> View</a>';
-        return '<div class="pub-card fade-up">' +
+        var cites = (p.citationCount && p.citationCount > 0)
+          ? '<span class="pub-cite-badge"><i class="fas fa-quote-left"></i> '+p.citationCount+'</span>'
+          : '';
+        return '<div class="pub-card fade-up" style="animation-delay:'+i*80+'ms">' +
           '<div class="pub-year-badge"><span>'+(p.year||'—')+'</span></div>' +
           '<div class="pub-body">' +
           '<h4>'+esc(p.title)+'</h4>' +
           '<p class="pub-authors">'+boldAuthors(p.authors)+'</p>' +
           '<p class="pub-journal">'+esc(p.venue||'')+'</p>' +
-          '<div class="pub-actions">'+doi+'</div>' +
+          '<div class="pub-actions" style="align-items:center;">'+doi+cites+'</div>' +
           '</div></div>';
       }).join('');
       /* re-trigger fade observer */
-      el.querySelectorAll('.fade-up').forEach(function(e){ e.classList.add('visible'); });
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.08 });
+        el.querySelectorAll('.fade-up').forEach(function(e){ obs.observe(e); });
+      } else {
+        el.querySelectorAll('.fade-up').forEach(function(e){ e.classList.add('visible'); });
+      }
     } catch(_) { /* silently keep skeleton if fetch fails */ }
   }
   if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', loadRecent);

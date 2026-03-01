@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/modern.css">
+  <script>!function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
   <style>
     /* Research-page specific styles */
     .research-detail {
@@ -105,6 +106,18 @@
     .collab-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.2rem; }
     .collab-card p  { font-size: 0.78rem; color: var(--gray-500); }
 
+    /* Research Dark Mode */
+    [data-theme="dark"] .rd-card { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .rd-card h3 { color: #e6edf3; }
+    [data-theme="dark"] .rd-card p { color: #8b949e; }
+    [data-theme="dark"] .rd-card li { color: #b1bac4; }
+    [data-theme="dark"] .approach-card { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .approach-card h4 { color: #e6edf3; }
+    [data-theme="dark"] .approach-card p { color: #8b949e; }
+    [data-theme="dark"] .collab-card { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .collab-card h4 { color: #e6edf3; }
+    [data-theme="dark"] .collab-card p { color: #8b949e; }
+
     @media (max-width: 900px) {
       .research-detail { grid-template-columns: 1fr; }
       .approach-grid   { grid-template-columns: 1fr 1fr; }
@@ -129,6 +142,7 @@
       <a href="index.html#skills">Skills</a>
       <a href="index.html#contact">Contact</a>
       <a href="cv.html" class="nav-cv"><i class="fas fa-id-card"></i> CV</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -338,6 +352,10 @@
     <span>Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
   </div>
 </footer>
+
+<button class="back-to-top" aria-label="Scroll to top" title="Scroll to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <script src="assets/js/modern.js"></script>
 </body>

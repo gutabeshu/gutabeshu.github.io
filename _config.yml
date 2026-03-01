@@ -10,8 +10,8 @@ locale                   : "en-US"
 title                    : "HORA Lab"
 title_separator          : "-"
 name                     : &name "Guta Wakbulcho Abeshu"
-description              : &description "Postdoc in Computational Climate Science"
-# url                      : https://jayrobwilliams.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : &description "Computational Hydrologist"
+# url                      : https://gutawabeshu.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "gutabeshu/gutabeshu.github.io"
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 mastodon:
-  username               : "fosstodon.org/@jayrobw"
+  username               :
 twitter:
   username               : 
 facebook:
@@ -86,7 +86,7 @@ analytics:
 author:
   name             : "Guta Wakbulcho Abeshu"
   avatar           : "Guta.png"
-  bio              : "Postdoc in Computational Climate Science"
+  bio              : "Computational Hydrologist"
   location         :
   employer         :
   pubmed           :

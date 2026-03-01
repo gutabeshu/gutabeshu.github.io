@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/modern.css">
+  <script>!function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
   <style>
     /* Loading skeleton */
     .pub-skeleton {
@@ -82,6 +83,16 @@
       border-radius: var(--radius-sm); border-left: 3px solid var(--teal-500);
     }
     .abstract-text.open { display: block; }
+
+    /* Publications Dark Mode */
+    [data-theme="dark"] .pub-state-box { background: #161b22; border-color: #30363d; color: #8b949e; }
+    [data-theme="dark"] .pub-state-box h3 { color: #e6edf3; }
+    [data-theme="dark"] .pub-body strong { color: #26c6da; }
+    [data-theme="dark"] .abstract-text { background: #161b22; color: #8b949e; border-left-color: #0097a7; }
+    [data-theme="dark"] .skeleton-card { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .pub-stats-bar { background: #161b22; border-color: #30363d; }
+    [data-theme="dark"] .pub-stats-bar .ps-val { color: #26c6da; }
+    [data-theme="dark"] .pub-stats-bar .ps-lbl { color: #8b949e; }
   </style>
 </head>
 <body>
@@ -97,6 +108,7 @@
       <a href="index.html#skills">Skills</a>
       <a href="index.html#contact">Contact</a>
       <a href="cv.html" class="nav-cv"><i class="fas fa-id-card"></i> CV</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -120,7 +132,7 @@
       <span class="eyebrow">Research Output</span>
       <h1>Publications</h1>
       <p class="page-hero-sub">
-        Peer-reviewed contributions in hydrology, AI/ML, and computational climate science.
+        Peer-reviewed contributions in hydrology, AI/ML, and computational hydrological science.
         <span id="hero-total" style="color:var(--teal-300);font-weight:600;"></span>
       </p>
       <div style="margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap;">
@@ -229,6 +241,10 @@
     <span>Auto-updated via <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a></span>
   </div>
 </footer>
+
+<button class="back-to-top" aria-label="Scroll to top" title="Scroll to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <script src="assets/js/modern.js"></script>
 <script>

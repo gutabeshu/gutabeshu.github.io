@@ -1,8 +1,8 @@
 {
   "_instructions": "Fill in semantic_scholar_id. Find it at semanticscholar.org — search your name, click your profile, copy the numeric ID from the URL (e.g. /author/1234567890). google_scholar_id is already set from your existing profile URL.",
   "name": "Guta Wakbulcho Abeshu",
-  "name_variants": ["Abeshu, G. W.", "Abeshu G.W.", "G. W. Abeshu", "Guta W. Abeshu", "Guta Wakbulcho Abeshu"],
-  "semantic_scholar_id": "YOUR_SEMANTIC_SCHOLAR_AUTHOR_ID",
+  "name_variants": ["Abeshu, G. W.", "Abeshu G.W.", "G. W. Abeshu", "Guta W. Abeshu", "Guta Wakbulcho Abeshu", "G. Abeshu", "Guta Abeshu"],
+  "semantic_scholar_id": "1405682204",
   "google_scholar_id": "oJwf_RwAAAAJ",
   "google_scholar_url": "https://scholar.google.com/citations?user=oJwf_RwAAAAJ&hl=en",
   "orcid": ""

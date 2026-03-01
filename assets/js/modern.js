@@ -4,6 +4,39 @@
 (function () {
   'use strict';
 
+  /* --- Dark Mode Toggle --- */
+  var savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  window.toggleTheme = function () {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    /* Update toggle icon */
+    var toggles = document.querySelectorAll('.theme-toggle');
+    toggles.forEach(function (t) {
+      t.innerHTML = next === 'dark'
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
+    });
+  };
+
+  /* Update toggle icon on load */
+  document.addEventListener('DOMContentLoaded', function () {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var toggles = document.querySelectorAll('.theme-toggle');
+    toggles.forEach(function (t) {
+      t.innerHTML = isDark
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
+    });
+  });
+
   /* --- Sticky nav --- */
   var navbar = document.getElementById('navbar');
   if (navbar) {
@@ -146,6 +179,62 @@
         }
       });
     }, { passive: true });
+  }
+
+  /* --- Back-to-top button --- */
+  var backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* --- Typing effect for hero role --- */
+  var typedEl = document.getElementById('typed-role');
+  if (typedEl) {
+    var phrases = [
+      'Computational Hydrologist',
+      'AI/ML for Water Systems Researcher',
+      'Earth System Modeling Specialist',
+      'Transboundary Water Management Expert'
+    ];
+    var cursor = document.createElement('span');
+    cursor.className = 'typed-cursor';
+    typedEl.parentNode.insertBefore(cursor, typedEl.nextSibling);
+
+    var phraseIdx = 0;
+    var charIdx = 0;
+    var isDeleting = false;
+    var typingSpeed = 55;
+    var pauseEnd = 2200;
+    var pauseStart = 400;
+
+    function typeStep() {
+      var current = phrases[phraseIdx];
+      if (!isDeleting) {
+        typedEl.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          setTimeout(function () { isDeleting = true; typeStep(); }, pauseEnd);
+          return;
+        }
+        setTimeout(typeStep, typingSpeed);
+      } else {
+        typedEl.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          isDeleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(typeStep, pauseStart);
+          return;
+        }
+        setTimeout(typeStep, typingSpeed / 2);
+      }
+    }
+    setTimeout(typeStep, 1200);
   }
 
 })();
