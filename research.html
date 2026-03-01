@@ -16,7 +16,7 @@
     /* Research-page specific styles */
     .research-detail {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
     }
@@ -119,11 +119,12 @@
     [data-theme="dark"] .collab-card p { color: #8b949e; }
 
     @media (max-width: 900px) {
-      .research-detail { grid-template-columns: 1fr; }
+      .research-detail { grid-template-columns: 1fr 1fr !important; }
       .approach-grid   { grid-template-columns: 1fr 1fr; }
       .collab-grid     { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
+      .research-detail { grid-template-columns: 1fr !important; }
       .approach-grid { grid-template-columns: 1fr; }
       .collab-grid   { grid-template-columns: 1fr 1fr; }
     }
@@ -166,8 +167,8 @@
       <span class="eyebrow">HORA Lab</span>
       <h1>Research Areas</h1>
       <p class="page-hero-sub">
-        Hydrosystems Operations, Resilience, and Adaptation — integrating AI, remote sensing,
-        and physics-based modeling to advance global water sustainability and climate resilience.
+        Three core research areas — Catchment Hydrology, Large-Scale Modeling, and AI/ML for Hydrology —
+        integrating observations, physics-based models, and machine learning to advance water science.
       </p>
       <div style="margin-top:1.75rem;display:flex;gap:1rem;flex-wrap:wrap;">
         <a href="publications.html" class="btn btn-white"><i class="fas fa-book-open"></i> Publications</a>
@@ -186,73 +187,60 @@
 <section class="section">
   <div class="container">
     <span class="eyebrow">Research Program</span>
-    <h2 class="section-title">Four Core Research Areas</h2>
+    <h2 class="section-title">Three Core Research Areas</h2>
     <div class="divider"></div>
-    <p class="section-sub">My research program sits at the intersection of hydrology, earth system science, and artificial intelligence — addressing global water challenges from molecular to planetary scales.</p>
+    <p class="section-sub">My research program spans catchment-scale ecohydrology, continental-to-global modeling, and AI-driven hydrological prediction — grounded in 20+ peer-reviewed publications.</p>
 
-    <div class="research-detail">
+    <div class="research-detail" style="grid-template-columns:repeat(3,1fr);">
 
       <div class="rd-card fade-up">
         <div class="rd-card-num">01</div>
         <div class="rc-icon" style="margin-bottom:1rem;"><i class="fas fa-water"></i></div>
-        <h3>Hydrological Modeling at Global Scale</h3>
-        <p>Developing and applying large-scale hydrological models that capture the full complexity of the terrestrial water cycle, from precipitation to runoff, groundwater recharge, and evapotranspiration.</p>
+        <h3>Catchment Hydrology</h3>
+        <p>Investigating water balance, ecohydrological processes, and sediment dynamics at the catchment scale — linking vegetation productivity, drought propagation, and flood frequency to landscape and climatic controls.</p>
         <ul class="rd-bullets">
-          <li>Coupling VIC, MOSART, and E3SM for coupled land-river simulations</li>
-          <li>Assimilating multi-source satellite observations (GRACE, MODIS, Sentinel)</li>
-          <li>Global-scale water budget analysis under climate projections</li>
-          <li>Urban water systems and potable water sustainability</li>
+          <li>Horton Index framework for multi-scale catchment water balance and vegetation dynamics</li>
+          <li>Causal relationships between root zone water availability, VPD, and gross primary productivity</li>
+          <li>Median bed-material sediment particle size mapping across U.S. rivers</li>
+          <li>Flood frequency analysis from coupled human-nature system perspectives</li>
+          <li>Drought propagation through natural-human systems</li>
         </ul>
         <div class="tag-row" style="margin-top:1rem;">
-          <span class="tag">VIC Model</span><span class="tag">MOSART</span><span class="tag">E3SM</span><span class="tag">GRACE</span>
+          <span class="tag">Horton Index</span><span class="tag">Ecohydrology</span><span class="tag">Water Balance</span><span class="tag">Sediment</span>
         </div>
       </div>
 
       <div class="rd-card fade-up">
         <div class="rd-card-num">02</div>
-        <div class="rc-icon" style="margin-bottom:1rem;"><i class="fas fa-brain"></i></div>
-        <h3>AI / ML for Intelligent Water Systems</h3>
-        <p>Building next-generation AI frameworks that combine physical constraints with deep learning to improve hydrological predictions and enable real-time, adaptive management of water resources.</p>
+        <div class="rc-icon" style="margin-bottom:1rem;"><i class="fas fa-globe-americas"></i></div>
+        <h3>Large-Scale Modeling</h3>
+        <p>Developing and advancing continental-to-global hydrological and earth system models — coupling land, river, and reservoir components to simulate water, carbon, and sediment cycles under climate change.</p>
         <ul class="rd-bullets">
-          <li>Physics-informed neural networks for streamflow forecasting</li>
-          <li>Deep reinforcement learning for reservoir and dam operations</li>
-          <li>Long Short-Term Memory (LSTM) networks for drought prediction</li>
-          <li>Multi-model ensemble methods and uncertainty quantification</li>
+          <li>E3SM earth system model development and evaluation (DOE flagship model)</li>
+          <li>ELM-MOSART-DOC: large-scale riverine dissolved organic carbon modeling</li>
+          <li>Enhancing reservoir and water management representation in global models (Xanthos)</li>
+          <li>GCAM-GLORY: global reservoir storage in multi-sector human-Earth system models</li>
+          <li>Large-scale suspended sediment modeling with MOSART-sediment</li>
         </ul>
         <div class="tag-row" style="margin-top:1rem;">
-          <span class="tag">Deep Learning</span><span class="tag">Reinforcement Learning</span><span class="tag">LSTM</span>
+          <span class="tag">E3SM</span><span class="tag">MOSART</span><span class="tag">Xanthos</span><span class="tag">GCAM</span><span class="tag">Reservoir Ops</span>
         </div>
       </div>
 
       <div class="rd-card fade-up">
         <div class="rd-card-num">03</div>
-        <div class="rc-icon" style="margin-bottom:1rem;"><i class="fas fa-cloud-sun-rain"></i></div>
-        <h3>Climate Resilience &amp; Adaptation</h3>
-        <p>Quantifying how climate change reshapes the frequency, intensity, and spatial distribution of hydrological extremes, and developing adaptation strategies for water-dependent communities and infrastructure.</p>
+        <div class="rc-icon" style="margin-bottom:1rem;"><i class="fas fa-brain"></i></div>
+        <h3>AI / ML for Hydrology</h3>
+        <p>Applying machine learning and deep learning to advance hydrological prediction, parameter estimation, and water systems optimization — from ML-derived geospatial datasets to physics-informed neural networks and reinforcement learning for reservoir operations.</p>
         <ul class="rd-bullets">
-          <li>Compound drought and heat event analysis under SSP scenarios</li>
-          <li>Flood risk assessment and urban stormwater management</li>
-          <li>Water-energy-food nexus under climate stress</li>
-          <li>Nature-based solutions for adaptive water infrastructure</li>
+          <li>Machine learning maps of dissolved organic carbon transformation rates</li>
+          <li>Deep reinforcement learning for hydropower and transboundary reservoir optimization</li>
+          <li>Physics-informed neural networks for streamflow and drought forecasting</li>
+          <li>Agent-based modeling for food-energy-water nexus under climate change</li>
+          <li>Data-driven frameworks for unprecedented flood and drought risk management</li>
         </ul>
         <div class="tag-row" style="margin-top:1rem;">
-          <span class="tag">Drought</span><span class="tag">Flood Risk</span><span class="tag">Climate Adaptation</span>
-        </div>
-      </div>
-
-      <div class="rd-card fade-up">
-        <div class="rd-card-num">04</div>
-        <div class="rc-icon" style="margin-bottom:1rem;"><i class="fas fa-globe-africa"></i></div>
-        <h3>Transboundary Water Management</h3>
-        <p>Applying AI-driven optimization and game-theoretic frameworks to navigate the political and technical complexities of shared river basins, supporting equitable and sustainable water allocation.</p>
-        <ul class="rd-bullets">
-          <li>Multi-objective optimization of international reservoir systems</li>
-          <li>Game theory and Nash bargaining for water conflict resolution</li>
-          <li>Remote sensing for ungauged transboundary basins</li>
-          <li>Case studies: Nile, Mekong, Tigris-Euphrates, Amu Darya</li>
-        </ul>
-        <div class="tag-row" style="margin-top:1rem;">
-          <span class="tag">Multi-objective Opt.</span><span class="tag">Game Theory</span><span class="tag">River Basins</span>
+          <span class="tag">Deep Learning</span><span class="tag">Reinforcement Learning</span><span class="tag">Physics-Informed ML</span><span class="tag">Agent-Based</span>
         </div>
       </div>
 

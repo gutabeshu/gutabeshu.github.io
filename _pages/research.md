@@ -8,9 +8,7 @@ header:
 ---
 
 
-My academic research focuses on two main areas: advancing hydrological modeling for climate resilience and developing AI-driven solutions for water systems operations and management. In the first area, my work addresses the global challenge of water sustainability by integrating AI, satellite remote sensing, and physics-based modeling to predict water availability, optimize resource allocation, and mitigate climate-induced risks to water systems. This research spans the analysis of large-scale hydrological processes, including urban water systems, drought management, and the global water cycle's response to climate change.
-
-My second research agenda uses advanced machine learning techniques to develop innovative methods for enhancing water infrastructure resilience. One key project employs deep reinforcement learning to optimize reservoir and river management across transboundary river systems, helping resolve international water-sharing conflicts. In another, I apply AI and data assimilation techniques to integrate real-time observations from satellites into global water models, improving the accuracy of flood and drought predictions.
+My academic research focuses on three core areas: **Catchment Hydrology**, **Large-Scale Modeling**, and **AI/ML for Hydrology**. In catchment hydrology, I investigate water balance, ecohydrological processes, vegetation-water interactions, and sediment dynamics — linking productivity, drought propagation, and flood frequency to landscape and climatic controls. My large-scale modeling work advances continental-to-global hydrological and earth system models (E3SM, MOSART, Xanthos, GCAM), coupling land, river, and reservoir components to simulate water, carbon, and sediment cycles under climate change. In AI/ML for hydrology, I apply machine learning, deep learning, and reinforcement learning to improve hydrological predictions, derive geospatial datasets, and optimize water systems operations.
 
 
 <!-- <nbsp>
