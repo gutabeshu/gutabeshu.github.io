@@ -229,6 +229,25 @@
   </div>
 </section>
 
+<!-- VISITOR STATISTICS -->
+<section style="padding:2.5rem 0;border-top:1px solid var(--gray-200);background:var(--gray-50);">
+  <div class="container" style="text-align:center;">
+    <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--gray-400);margin-bottom:0.75rem;font-weight:600;"><i class="fas fa-chart-bar"></i>&nbsp; Site Visitors</p>
+    <div style="display:inline-flex;gap:2.5rem;align-items:center;flex-wrap:wrap;justify-content:center;margin-bottom:1.5rem;">
+      <div>
+        <span id="gc-views" style="font-family:var(--font-serif);font-size:2rem;font-weight:700;color:var(--blue-800);line-height:1;">—</span>
+        <br><span style="font-size:0.72rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;">Page Views</span>
+      </div>
+      <div style="width:1px;height:36px;background:var(--gray-300);"></div>
+      <div>
+        <span id="gc-unique" style="font-family:var(--font-serif);font-size:2rem;font-weight:700;color:var(--teal-600);line-height:1;">—</span>
+        <br><span style="font-size:0.72rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.06em;">Unique Visitors</span>
+      </div>
+    </div>
+    <div id="visitor-map" style="margin:0 auto;max-width:600px;min-height:40px;"></div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -448,6 +467,22 @@
   } else {
     loadPublications();
   }
+})();
+</script>
+<script data-goatcounter="https://gutawabeshu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script>
+(function() {
+  var gc = 'gutawabeshu';
+  var p = (location.pathname || '/').replace(/\/index\.html$/i, '/');
+  if (p === '' || p === '.') p = '/';
+  fetch('https://' + gc + '.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
+    .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function(d) {
+      if (d.count)        document.getElementById('gc-views').textContent  = d.count;
+      if (d.count_unique) document.getElementById('gc-unique').textContent = d.count_unique;
+    })
+    .catch(function() {});
 })();
 </script>
 </body>
