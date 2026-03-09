@@ -1,6 +1,6 @@
 {
   "author": "Guta Wakbulcho Abeshu",
-  "updatedAt": "2026-03-02",
+  "updatedAt": "2026-03-09",
   "source": "Semantic Scholar API",
   "total": 20,
   "years": [
@@ -89,7 +89,7 @@
       "pdfUrl": "",
       "isOpenAccess": false,
       "citationCount": 1,
-      "abstract": "",
+      "abstract": "Increasing extreme precipitation and drought events along changes in their seasonal patterns due to climate change are expected to have profound consequences for carbon cycling. However, how these climate extremes impact ecosystem respiration (Reco) and whether these impacts differ between seasons remain unclear. Here, we reveal the responses of Reco and its components to extreme precipitation and drought in spring and summer by conducting a five-year manipulative experiment in a temperate meadow steppe. Based on a 5-year average, the seasonal mean values (±SE) of Reco, Rh, Rroot, Rabg and …",
       "scholarUrl": "https://www.semanticscholar.org/paper/dad6cc556ce693f5ac1ca158799c02b3f113dd26"
     },
     {
@@ -140,7 +140,7 @@
       "pdfUrl": "",
       "isOpenAccess": false,
       "citationCount": 6,
-      "abstract": "",
+      "abstract": "Managing water resources to meet increasing energy and food demands while maintaining environmental sustainability under climate change is a major challenge, especially when this nexus occurred in a coupled natu-ral – human system (CNHS), where heterogeneous human activities affect the natural hydrologic cycle and vice versa. The relevant research has been limited by the lack of models that can effectively integrate human dynamics and hydrologic conditions with spatial details to examine co-evolutionary systems. To address this challenge, this paper develops a modeling framework that …",
       "scholarUrl": "https://www.semanticscholar.org/paper/c1f2a5cb451f89774c9f344e42c463557011593a"
     },
     {
@@ -411,7 +411,7 @@
         "A. Sazonov",
         "Sanjib Sharma",
         "Johanna Lykke Sörensen",
-        "Felipe Augusto",
+        "F. Augusto",
         "A. Souza",
         "Kerstin Stahl",
         "M. Steinhausen",
@@ -550,7 +550,7 @@
       "arxivUrl": null,
       "pdfUrl": "https://www.nature.com/articles/s41586-022-04917-5.pdf",
       "isOpenAccess": true,
-      "citationCount": 353,
+      "citationCount": 357,
       "abstract": "Risk management has reduced vulnerability to floods and droughts globally1,2, yet their impacts are still increasing3. An improved understanding of the causes of changing impacts is therefore needed, but has been hampered by a lack of empirical data4,5. On the basis of a global dataset of 45 pairs of events that occurred within the same area, we show that risk management generally reduces the impacts of floods and droughts but faces difficulties in reducing the impacts of unprecedented events of a magnitude not previously experienced. If the second event was much more hazardous than the …",
       "scholarUrl": "https://www.semanticscholar.org/paper/e09939b951a1e612b0a4699b4a7301b80d9a9384"
     },
