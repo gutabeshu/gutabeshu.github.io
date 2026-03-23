@@ -1,6 +1,6 @@
 {
   "author": "Guta Wakbulcho Abeshu",
-  "updatedAt": "2026-03-16",
+  "updatedAt": "2026-03-23",
   "source": "Semantic Scholar API",
   "total": 20,
   "years": [
@@ -221,7 +221,7 @@
       "arxivUrl": null,
       "pdfUrl": "https://gmd.copernicus.org/articles/16/5449/2023/gmd-16-5449-2023.pdf",
       "isOpenAccess": true,
-      "citationCount": 20,
+      "citationCount": 22,
       "abstract": "Abstract. This study enhances an existing global hydrological model (GHM), Xanthos, by adding a new water management module that distinguishes between the operational characteristics of irrigation, hydropower, and flood control reservoirs. We remapped reservoirs in the Global Reservoir and Dam (GRanD) database to the 0.5∘ spatial resolution in Xanthos so that a single lumped reservoir exists per grid cell, which yielded 3790 large reservoirs. We implemented unique operation rules for each reservoir type, based on their\nprimary purposes. In particular, hydropower reservoirs have been treated …",
       "scholarUrl": "https://www.semanticscholar.org/paper/8d51eacc2d527abe3445f030c0cbae9ed09f0354"
     },
@@ -329,7 +329,7 @@
       "arxivUrl": null,
       "pdfUrl": "https://essd.copernicus.org/articles/15/2009/2023/essd-15-2009-2023.pdf",
       "isOpenAccess": true,
-      "citationCount": 16,
+      "citationCount": 17,
       "abstract": "Abstract. As the adverse impacts of hydrological extremes increase in many regions of\nthe world, a better understanding of the drivers of changes in risk and\nimpacts is essential for effective flood and drought risk management and\nclimate adaptation. However, there is currently a lack of comprehensive,\nempirical data about the processes, interactions, and feedbacks in complex\nhuman–water systems leading to flood and drought impacts. Here we present a\nbenchmark dataset containing socio-hydrological data of paired events, i.e. two floods or two droughts that occurred in the same area. The 45 …",
       "scholarUrl": "https://www.semanticscholar.org/paper/bd70e801cf90d67af3e6050268ab5e10664fa2b6"
     },
@@ -550,7 +550,7 @@
       "arxivUrl": null,
       "pdfUrl": "https://www.nature.com/articles/s41586-022-04917-5.pdf",
       "isOpenAccess": true,
-      "citationCount": 361,
+      "citationCount": 364,
       "abstract": "Risk management has reduced vulnerability to floods and droughts globally1,2, yet their impacts are still increasing3. An improved understanding of the causes of changing impacts is therefore needed, but has been hampered by a lack of empirical data4,5. On the basis of a global dataset of 45 pairs of events that occurred within the same area, we show that risk management generally reduces the impacts of floods and droughts but faces difficulties in reducing the impacts of unprecedented events of a magnitude not previously experienced. If the second event was much more hazardous than the …",
       "scholarUrl": "https://www.semanticscholar.org/paper/e09939b951a1e612b0a4699b4a7301b80d9a9384"
     },
