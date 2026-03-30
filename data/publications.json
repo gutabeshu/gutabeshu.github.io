@@ -1,6 +1,6 @@
 {
   "author": "Guta Wakbulcho Abeshu",
-  "updatedAt": "2026-03-23",
+  "updatedAt": "2026-03-30",
   "source": "Semantic Scholar API",
   "total": 20,
   "years": [
@@ -168,7 +168,7 @@
       "arxivUrl": null,
       "pdfUrl": "",
       "isOpenAccess": false,
-      "citationCount": 3,
+      "citationCount": 4,
       "abstract": "Abstract. Reservoirs play a significant role in modifying the spatiotemporal availability of surface water to meet multi-sector human demands, despite representing a relatively small fraction of the global water budget. Yet the integrated modeling frameworks that explore the interactions among climate, land, energy, water, and socioeconomic systems at a global scale often contain limited representations of water storage dynamics that incorporate feedbacks from other systems. In this study, we implement a representation of water storage in the Global Change Analysis Model (GCAM) to enable the …",
       "scholarUrl": "https://www.semanticscholar.org/paper/53521ae95e2b74480e720348f566562028b7bba3"
     },
@@ -550,7 +550,7 @@
       "arxivUrl": null,
       "pdfUrl": "https://www.nature.com/articles/s41586-022-04917-5.pdf",
       "isOpenAccess": true,
-      "citationCount": 364,
+      "citationCount": 368,
       "abstract": "Risk management has reduced vulnerability to floods and droughts globally1,2, yet their impacts are still increasing3. An improved understanding of the causes of changing impacts is therefore needed, but has been hampered by a lack of empirical data4,5. On the basis of a global dataset of 45 pairs of events that occurred within the same area, we show that risk management generally reduces the impacts of floods and droughts but faces difficulties in reducing the impacts of unprecedented events of a magnitude not previously experienced. If the second event was much more hazardous than the …",
       "scholarUrl": "https://www.semanticscholar.org/paper/e09939b951a1e612b0a4699b4a7301b80d9a9384"
     },
@@ -618,7 +618,7 @@
       "arxivUrl": null,
       "pdfUrl": "",
       "isOpenAccess": false,
-      "citationCount": 14,
+      "citationCount": 15,
       "abstract": "This paper is motivated to understand the multi‐temporal scale characteristics of Horton Index (HI), an indicator of catchment‐scale plant water use defined as the ratio of catchment vaporization (total evapotranspiration) to catchment wetting (precipitation minus surface runoff). Based on the generalized proportionality hypothesis, we first develop an analytical framework of HI applicable at multi‐temporal scales as a single function of ecological aridity index (EAI), defined as the ratio of potential evapotranspiration to catchment wetting. We successfully validate this framework at the …",
       "scholarUrl": "https://www.semanticscholar.org/paper/a0e8bb271075369072175bb237cdbc5fa84de009"
     },
@@ -645,7 +645,7 @@
         "S. Brus",
         "S. Burrows",
         "P. Cameron-smith",
-        "A. S. Donahue",
+        "A. Donahue",
         "Michael Deakin",
         "R. Easter",
         "K. Evans",
@@ -719,7 +719,7 @@
       "arxivUrl": null,
       "pdfUrl": "https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2018MS001603",
       "isOpenAccess": true,
-      "citationCount": 574,
+      "citationCount": 576,
       "abstract": "This work documents the first version of the U.S. Department of Energy (DOE) new Energy Exascale Earth System Model (E3SMv1). We focus on the standard resolution of the fully coupled physical model designed to address DOE mission‐relevant water cycle questions. Its components include atmosphere and land (110‐km grid spacing), ocean and sea ice (60 km in the midlatitudes and 30 km at the equator and poles), and river transport (55 km) models. This base configuration will also serve as a foundation for additional configurations exploring higher horizontal resolution as well as augmented …",
       "scholarUrl": "https://www.semanticscholar.org/paper/52ac6a0d14bc2ba9aa0ef17ef78291923537e24e"
     },
